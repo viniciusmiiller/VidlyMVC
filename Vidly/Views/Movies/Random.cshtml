@@ -1,0 +1,45 @@
+﻿@model Vidly.Models.Movie
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="jumbotron">
+        <h2>@Model.Name</h2>
+    </div>
+    <div class="row">
+        <div class="col col-md-12">
+            <input class="form-control" type="text" id="txtNomeUsuario"/>
+
+
+            <div class="modal fade" tabindex="-1" role="dialog" id="modalBoasVindas">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Boas Vindas</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p<span id="nomeUsuario"></span>&hellip;</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+            <!-- Button trigger modal -->
+            <button type="button" id="btnOpenModal" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalBoasVindas">
+                Dar boas vindas
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('btnOpenModal').addEventListener('click', () => {
+        document.getElementById('nomeUsuario').innerHTML = document.getElementById('txtNomeUsuario').value;
+    });
+</script>
